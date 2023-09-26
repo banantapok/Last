@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -47,7 +46,7 @@
         .fun-block__title {
         margin: 0;
         padding: 32px 16px 16px; 
-        color: #7f1eff;
+        color: red;
         font-weight: normal; 
         font-size: 14px; 
         line-height: 16px; }
@@ -62,12 +61,12 @@
           left: 10%; 
           font-size: 12pt; 
           font-family: "Arial Rounded MT Bold";
-          color: #7f1eff; }
+          color: #a52dff; }
       
          #popup_progress {
           display:none;
           text-align: center;
-          background-color: #7f1eff; 
+          background-color: #a52dff; 
           width:200px;
           height:20px;
           position:absolute;
@@ -92,9 +91,9 @@ $(document).ready(function(){
 		
 		ctx.textBaseline="top";
 		ctx.textAlign="center";
-		ctx.fillStyle="#7f1eff";
+		ctx.fillStyle="red";
 		ctx.font='30px "Arial, sans-serif"';
-		ctx.fillText(("Project-C Premium Build"), (canvas.width)/2,50);
+		ctx.fillText(("BETA ise pmt BETA"), (canvas.width)/2,50);
 			
         for(let i=0; i<gRoles.length; i++)
         {
@@ -563,14 +562,14 @@ function frida_script() { if(arguments.length) return new Error().line;
 <canvas id="cav" width="100%" height="100%" style="color:red;width:100%;height:100%;"></canvas>
  
 <div id="app">
-	<div style="border:3px  #6726fd; border-radius:10px;" class="aymenu" ref="menuMain">
+	<div style="border:3px  #fd0000; border-radius:10px;" class="aymenu" ref="menuMain">
 		<div @touchstart="titleTouchStart" @touchmove="titleTouchMove">
 			<van-nav-bar>
 				<template #title>
                   
 					
 					<van-button type="primary" color="transparent" @click="changeTab('Visual')" size="max" plain><img src="https://i.ibb.co/nwVnZVJ/CA4-DEE39-50- EE-4526-90-DA-3-B2978-DAF8-DC.png" alt="CA4-DEE39-50-EE-4526-90-DA-3-B2978-DAF8-DC" border="0"width="50"></van-button>
-					
+                  
 					<div id="popup_loadscripts" class="popup_view3">
 				</template>
 				<template #right>
@@ -584,13 +583,14 @@ function frida_script() { if(arguments.length) return new Error().line;
 			<div  class="menuBody" ref="menuBody">
 				<div>
 					<!--------------------------------------------------------------------------------------------------------------------------------------------------->
+                  
 					
 					<div v-show="tabValue==='Visual'">
-						<h3 id="name" class="fun-block__title" style="padding-top: 20px;"><center>Project-C Premium Build</center></h3>
+						<h3 id="name" class="fun-block__title" style="padding-top: 20px;"><center>ise pmt. DM:@WHYBANANAS</center></h3>
                       <div id ="inset">
                         
                       
-							<p class="content"  style="padding-top: 10px;color:aqua;">
+							<p class="content"  style="padding-top: 10px;color:red;">
 								<center>ESP</center>
 							</p>
 							<br>
@@ -625,11 +625,13 @@ function frida_script() { if(arguments.length) return new Error().line;
 							<br>													   
 							<van-checkbox v-model="GlobalCheckbox.FovHook" style="margin-left: 10px;" icon-size="25px" onclick="FovHookVoid()" ><font style="color:black">Fov</font></van-checkbox>
 							<br>
-						</van-cell-group>
+                        
+
+					
 					</div>
-					<div v-show="tabValue==='About'">
-						<h3 id="name" class="fun-block__title" style="padding-top: 20px;"><center>Project-C Premium Build</center></h3> 
-					</div>
+                  
+
+                        
 				</div>
 			</div>
 		</div>
@@ -771,6 +773,7 @@ function frida_script() { if(arguments.length) return new Error().line;
                 menu.style.display = "none";
                 setWindowTouch(false);
             }
+          
         });
 </script>
 
