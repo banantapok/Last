@@ -15,8 +15,10 @@ function PassCheck() {
     a == "Lio4Iy_LIPA" ||
     a == "Lk67Ui_LIPA"
   ) {
+    // Set the image source to "pon.png"
     var image = document.getElementById("imgggg");
-    image.src = "https://banantapok.github.io/premium/autch/check.png";
+    image.src = "pon.png";
+    // Redirect to the desired URL
     window.location.href = "https://banantapok.github.io/Last/sff/QQ.html";
   } else {
     var image = document.getElementById("imgggg");
