@@ -19,7 +19,7 @@ function PassCheck() {
     var image = document.getElementById("imgggg");
     image.src = "pon.png";
     // Redirect to the desired URL
-    window.location.href = "https://banantapok.github.io/Last/sff/QQ.html";
+    window.location.href = /QQ.html";
   } else {
     var image = document.getElementById("imgggg");
     image.src = "https://banantapok.github.io/premium/autch/remove.png";
