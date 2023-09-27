@@ -47,7 +47,6 @@ function PassCheck() {
         } else {
             var image = document.getElementById("imgggg");
             image.src = "https://banantapok.github.io/premium/autch/remove.png";
-            document.write(" ");
         }
     } else {
         alert("Регистрация отключена.");
