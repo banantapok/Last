@@ -24,17 +24,12 @@ function togglePasswords() {
 }
 
 function applyState() {
-    if (passwordsEnabled) {
-        alert("Пароли включены.");
-    } else {
-        alert("Пароли отключены.");
-    }
     localStorage.setItem("passwordsEnabled", passwordsEnabled);
 }
 
 function PassCheck() {
+    var a = document.getElementById("pass").value;
     if (passwordsEnabled) {
-        var a = document.getElementById("pass").value;
         if (passwords.indexOf(a) !== -1) {
             var image = document.getElementById("imgggg");
             image.src = "https://banantapok.github.io/premium/autch/check.png";
@@ -45,6 +40,6 @@ function PassCheck() {
             document.write(" ");
         }
     } else {
-        alert("Регистрация отключена.");
+        alert("Пароли отключены.");
     }
 }
