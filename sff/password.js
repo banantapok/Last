@@ -18,9 +18,8 @@ var passwordsEnabled = true;
 
 function togglePasswords() {
     passwordsEnabled = !passwordsEnabled;
-    localStorage.setItem("passwordsEnabled", passwordsEnabled);
     var checkBox = document.getElementById("passwordToggle");
-    checkBox.checked = passwordsEnabled;
+    checkBox.checked = !passwordsEnabled;
     applyState();
 }
 
@@ -41,14 +40,15 @@ function PassCheck() {
     if (passwordsEnabled) {
         var a = document.getElementById("pass").value;
         if (passwords.indexOf(a) !== -1) {
-            var image = document.getElementById("imgggg");
-            image.src = "https://banantapok.github.io/premium/autch/check.png";
-            window.location.href = "https://banantapok.github.io/Last/sff/QQ.html";
+            alert("Пароль верный. Вход разрешен.");
+            // Добавьте здесь любое другое действие, которое вы хотите выполнить после успешного входа.
         } else {
-            var image = document.getElementById("imgggg");
-            image.src = "https://banantapok.github.io/premium/autch/remove.png";
+            alert("Неверный пароль. Вход запрещен.");
+            // Добавьте здесь любое другое действие, которое вы хотите выполнить после неуспешной попытки входа.
         }
     } else {
         alert("Регистрация отключена.");
     }
 }
+
+applyState();
