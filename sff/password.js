@@ -1,4 +1,3 @@
-
 // password.js
 
 var passwords = [
@@ -15,16 +14,22 @@ var passwords = [
     "Lk67Ui_LIPA"
 ];
 
-var passwordsEnabled = true; // Флаг для включения/отключения паролей
+var passwordsEnabled = true;
 
 function togglePasswords() {
     passwordsEnabled = !passwordsEnabled;
+    localStorage.setItem("passwordsEnabled", passwordsEnabled);
     var checkBox = document.getElementById("passwordToggle");
-    checkBox.checked = passwordsEnabled; // Обновляем состояние чекбокса
+    checkBox.checked = passwordsEnabled;
     applyState();
 }
 
 function applyState() {
+    var savedState = localStorage.getItem("passwordsEnabled");
+    if (savedState !== null) {
+        passwordsEnabled = savedState === "true";
+    }
+
     if (passwordsEnabled) {
         alert("Пароли включены.");
     } else {
