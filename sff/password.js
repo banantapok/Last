@@ -1,3 +1,4 @@
+
 // password.js
 
 var passwords = [
@@ -14,29 +15,36 @@ var passwords = [
     "Lk67Ui_LIPA"
 ];
 
-function togglePasswords() {
-    var checkBox = document.getElementById("passwordToggle");
-    var passwordsEnabled = checkBox.checked;
+var passwordsEnabled = true; // Флаг для включения/отключения паролей
 
+function togglePasswords() {
+    passwordsEnabled = !passwordsEnabled;
+    var checkBox = document.getElementById("passwordToggle");
+    checkBox.checked = passwordsEnabled; // Обновляем состояние чекбокса
+    applyState();
+}
+
+function applyState() {
     if (passwordsEnabled) {
         alert("Пароли включены.");
     } else {
         alert("Пароли отключены.");
     }
-
-    var passInput = document.getElementById("pass");
-    passInput.disabled = !passwordsEnabled;
 }
 
 function PassCheck() {
-    var a = document.getElementById("pass").value;
-    if (passwords.indexOf(a) !== -1) {
-        var image = document.getElementById("imgggg");
-        image.src = "https://banantapok.github.io/premium/autch/check.png";
-        window.location.href = "https://banantapok.github.io/Last/sff/QQ.html";
+    if (passwordsEnabled) {
+        var a = document.getElementById("pass").value;
+        if (passwords.indexOf(a) !== -1) {
+            var image = document.getElementById("imgggg");
+            image.src = "https://banantapok.github.io/premium/autch/check.png";
+            window.location.href = "https://banantapok.github.io/Last/sff/QQ.html";
+        } else {
+            var image = document.getElementById("imgggg");
+            image.src = "https://banantapok.github.io/premium/autch/remove.png";
+            document.write(" ");
+        }
     } else {
-        var image = document.getElementById("imgggg");
-        image.src = "https://banantapok.github.io/premium/autch/remove.png";
-        document.write(" ");
+        alert("Регистрация отключена.");
     }
 }
