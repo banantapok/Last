@@ -17,19 +17,14 @@ var passwords = [
 var passwordsEnabled = true;
 
 function togglePasswords() {
-    var checkBox = document.getElementById("passwordToggle");
-    if (checkBox) {
-        passwordsEnabled = !checkBox.checked; // Обновляем флаг на основе состояния чекбокса, если он существует
-        applyState();
-    } else {
-        console.error("Чекбокс с id 'passwordToggle' не найден.");
-    }
+    passwordsEnabled = !passwordsEnabled;
+    applyState();
 }
 
 function applyState() {
     var checkBox = document.getElementById("passwordToggle");
     if (checkBox) {
-        checkBox.checked = !passwordsEnabled; // Обновляем состояние чекбокса на основе флага, если он существует
+        checkBox.checked = !passwordsEnabled;
 
         if (passwordsEnabled) {
             alert("Пароли включены.");
