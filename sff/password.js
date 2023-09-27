@@ -14,10 +14,20 @@ var passwords = [
     "Lk67Ui_LIPA"
 ];
 
-function PassCheck() {
-    var a = document.getElementById("pass").value;
-    
+var passwordsEnabled = true; // Флаг для включения/отключения паролей
+
+function togglePasswords() {
+    passwordsEnabled = !passwordsEnabled;
     if (passwordsEnabled) {
+        alert("Пароли включены.");
+    } else {
+        alert("Пароли отключены.");
+    }
+}
+
+function PassCheck() {
+    if (passwordsEnabled) {
+        var a = document.getElementById("pass").value;
         if (passwords.indexOf(a) !== -1) {
             var image = document.getElementById("imgggg");
             image.src = "https://banantapok.github.io/premium/autch/check.png";
@@ -29,17 +39,5 @@ function PassCheck() {
         }
     } else {
         alert("Регистрация отключена.");
-    }
-}
-
-var passwordsEnabled = true; // Флаг для включения/отключения паролей
-
-function togglePasswords() {
-    var passwordToggle = document.getElementById("passwordToggle");
-    passwordsEnabled = !passwordToggle.checked;
-    if (passwordsEnabled) {
-        alert("Пароли включены.");
-    } else {
-        alert("Пароли отключены.");
     }
 }
