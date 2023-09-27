@@ -25,6 +25,11 @@ function togglePasswords() {
 
 function applyState() {
     localStorage.setItem("passwordsEnabled", passwordsEnabled);
+    if (passwordsEnabled) {
+        alert("Пароли включены.");
+    } else {
+        alert("Пароли отключены.");
+    }
 }
 
 function PassCheck() {
