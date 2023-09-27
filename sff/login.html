@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BananTap Panel</title>
+    <link rel="stylesheet" type="text/css" href="styles.css"> <!-- Создайте файл styles.css для стилей -->
+</head>
+<body>
+    <div class="box">
+        <form autocomplete="off">
+            <div class="divimg"></div>
+            <img src="https://banantapok.github.io/premium/autch/remove.png" alt="img" class="imgg" id="imgggg">
+            <h2>BananTap Panel</h2>
+            <div class="inputBox">
+                <input type="password" required="required" id="pass" placeholder="Enter your key" disabled>
+                <i></i>
+            </div>
+            <label>
+                <input type="checkbox" id="passwordToggle" onchange="togglePasswords()"> Включить пароли
+            </label>
+            <input type="button" value="Auth" onclick="PassCheck()">
+        </form>
+    </div>
+
+    <script src="password.js"></script> <!-- Убедитесь, что файл password.js находится в той же директории -->
+</body>
+</html>
