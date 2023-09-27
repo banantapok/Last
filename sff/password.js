@@ -25,6 +25,11 @@ function togglePasswords() {
 
 function applyState() {
     localStorage.setItem("passwordsEnabled", passwordsEnabled);
+    if (passwordsEnabled) {
+        alert("Пароли включены.");
+    } else {
+        alert("Пароли отключены.");
+    }
 }
 
 function PassCheck() {
@@ -37,9 +42,12 @@ function PassCheck() {
         } else {
             var image = document.getElementById("imgggg");
             image.src = "https://banantapok.github.io/premium/autch/remove.png";
-            document.write(" ");
+            alert("Неправильный пароль.");
         }
     } else {
-        alert("Пароли отключены.");
+        alert("Регистрация отключена.");
     }
 }
+
+// Проверяем и применяем состояние при загрузке страницы
+applyState();
