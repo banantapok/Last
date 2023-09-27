@@ -18,18 +18,26 @@ var passwordsEnabled = true;
 
 function togglePasswords() {
     var checkBox = document.getElementById("passwordToggle");
-    passwordsEnabled = !checkBox.checked; // Обновляем флаг на основе состояния чекбокса
-    applyState();
+    if (checkBox) {
+        passwordsEnabled = !checkBox.checked; // Обновляем флаг на основе состояния чекбокса, если он существует
+        applyState();
+    } else {
+        console.error("Чекбокс с id 'passwordToggle' не найден.");
+    }
 }
 
 function applyState() {
     var checkBox = document.getElementById("passwordToggle");
-    checkBox.checked = !passwordsEnabled; // Обновляем состояние чекбокса на основе флага
+    if (checkBox) {
+        checkBox.checked = !passwordsEnabled; // Обновляем состояние чекбокса на основе флага, если он существует
 
-    if (passwordsEnabled) {
-        alert("Пароли включены.");
+        if (passwordsEnabled) {
+            alert("Пароли включены.");
+        } else {
+            alert("Пароли отключены.");
+        }
     } else {
-        alert("Пароли отключены.");
+        console.error("Чекбокс с id 'passwordToggle' не найден.");
     }
 }
 
