@@ -14,10 +14,15 @@ var passwords = [
     "Lk67Ui_LIPA"
 ];
 
-var passwordsEnabled = true; // Флаг для включения/отключения паролей
+// Получаем состояние флага из localStorage при загрузке страницы
+var passwordsEnabled = localStorage.getItem("passwordsEnabled") === "true";
 
 function togglePasswords() {
     passwordsEnabled = !passwordsEnabled;
+
+    // Сохраняем состояние флага в localStorage
+    localStorage.setItem("passwordsEnabled", passwordsEnabled);
+
     if (passwordsEnabled) {
         alert("Пароли включены.");
     } else {
