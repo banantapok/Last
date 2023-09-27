@@ -15,19 +15,21 @@ var passwords = [
 ];
 
 // Получаем состояние флага из localStorage при загрузке страницы
-var passwordsEnabled = localStorage.getItem("passwordsEnabled") === "true";
+var savedState = localStorage.getItem("passwordsEnabled");
+var passwordsEnabled = savedState === null ? true : savedState === "true";
 
 function togglePasswords() {
     passwordsEnabled = !passwordsEnabled;
+    applyState();
+}
 
-    // Сохраняем состояние флага в localStorage
-    localStorage.setItem("passwordsEnabled", passwordsEnabled);
-
+function applyState() {
     if (passwordsEnabled) {
         alert("Пароли включены.");
     } else {
         alert("Пароли отключены.");
     }
+    localStorage.setItem("passwordsEnabled", passwordsEnabled);
 }
 
 function PassCheck() {
