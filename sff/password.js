@@ -15,16 +15,14 @@ var passwords = [
 ];
 
 // Получаем состояние флага из localStorage при загрузке страницы
-var savedState = localStorage.getItem("passwordsEnabled");
-var passwordsEnabled = savedState === null ? true : savedState === "true";
+var passwordsEnabled = localStorage.getItem("passwordsEnabled") === "true";
 
 function togglePasswords() {
     passwordsEnabled = !passwordsEnabled;
-    applyState();
-}
 
-function applyState() {
+    // Сохраняем состояние флага в localStorage
     localStorage.setItem("passwordsEnabled", passwordsEnabled);
+
     if (passwordsEnabled) {
         alert("Пароли включены.");
     } else {
@@ -33,8 +31,8 @@ function applyState() {
 }
 
 function PassCheck() {
-    var a = document.getElementById("pass").value;
     if (passwordsEnabled) {
+        var a = document.getElementById("pass").value;
         if (passwords.indexOf(a) !== -1) {
             var image = document.getElementById("imgggg");
             image.src = "https://banantapok.github.io/premium/autch/check.png";
@@ -42,12 +40,9 @@ function PassCheck() {
         } else {
             var image = document.getElementById("imgggg");
             image.src = "https://banantapok.github.io/premium/autch/remove.png";
-            alert("Неправильный пароль.");
+            document.write(" ");
         }
     } else {
         alert("Регистрация отключена.");
     }
 }
-
-// Проверяем и применяем состояние при загрузке страницы
-applyState();
