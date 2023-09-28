@@ -2,7 +2,7 @@
 
 var allowedPasswords = [
   "EGBAK_Eg7619",
-  "Hao729_LIPA",
+  "7480",
   // Другие разрешенные пароли
 ];
 
