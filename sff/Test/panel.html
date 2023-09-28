@@ -2,25 +2,9 @@
 <html>
 <head>
   <title>Панель управления</title>
-  <script>
-    src="password.js"
-    // Функция для включения входа
-    function enableLogin() {
-      localStorage.setItem("loginEnabled", "true");
-      alert("Вход включен.");
-    }
-
-    // Функция для отключения входа
-    function disableLogin() {
-      localStorage.setItem("loginEnabled", "false");
-      alert("Вход отключен. Подождите.");
-    }
-  </script>
 </head>
 <body>
   <h1>Панель управления</h1>
-
-  <!-- Кнопки для включения и отключения входа -->
   <button onclick="enableLogin()">Включить вход</button>
   <button onclick="disableLogin()">Отключить вход</button>
 </body>
