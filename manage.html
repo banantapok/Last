@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Manager</title>
+</head>
+<body>
+    <h1>Password Manager</h1>
+    <label for="password">Password:</label>
+    <input type="text" id="password" name="password">
+    <button onclick="addPassword()">Add Password</button>
+    <button onclick="deletePassword()">Delete Password</button>
+    <button onclick="viewPasswords()">View Passwords</button>
+
+    <div id="passwordList"></div>
+
+    <script>
+        var token = "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"; // Ваш токен доступа к GitHub
+        var apiUrl = "https://api.github.com/repos/banantapok/Last/contents/us.txt"; // Ссылка на ваш текстовый файл
+
+        function addPassword() {
+            var password = document.getElementById("password").value;
+            var content = window.btoa(unescape(encodeURIComponent(password))); // Кодируем пароль в формат Base64
+
+            var data = {
+                "message": "Add new password",
+                "content": content
+            };
+
+            fetch(apiUrl, {
+                method: "PUT",
+                headers: {
+                    "Authorization": "token " + token,
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => console.log(data))
+            .catch(error => console.error("Error:", error));
+        }
+
+        function deletePassword() {
+            // Реализация удаления пароля
+        }
+
+        function viewPasswords() {
+            fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                var passwords = atob(data.content).split("\n");
+                var passwordList = document.getElementById("passwordList");
+                passwordList.innerHTML = "";
+                passwords.forEach(password => {
+                    var passwordElement = document.createElement("div");
+                    passwordElement.textContent = password;
+                    passwordList.appendChild(passwordElement);
+                });
+            })
+            .catch(error => console.error("Error:", error));
+        }
+    </script>
+</body>
+</html>
