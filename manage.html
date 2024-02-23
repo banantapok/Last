@@ -2,6 +2,35 @@
 <html>
 <head>
     <title>Password Manager</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 10px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"] {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        #passwordList {
+            margin-top: 20px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red;
+        }
+    </style>
 </head>
 <body>
     <h1>Password Manager</h1>
@@ -13,9 +42,17 @@
 
     <div id="passwordList"></div>
 
+    <div id="status"></div>
+
     <script>
         var token = "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"; // Ваш токен доступа к GitHub
         var apiUrl = "https://api.github.com/repos/banantapok/Last/contents/us.txt"; // Ссылка на ваш текстовый файл
+
+        function showMessage(message, className) {
+            var statusElement = document.getElementById("status");
+            statusElement.textContent = message;
+            statusElement.className = className;
+        }
 
         function addPassword() {
             var password = document.getElementById("password").value;
@@ -34,9 +71,19 @@
                 },
                 body: JSON.stringify(data)
             })
-            .then(response => response.json())
+            .then(response => {
+                if (response.ok) {
+                    showMessage("Password added successfully.", "success");
+                } else {
+                    showMessage("Error adding password.", "error");
+                }
+                return response.json();
+            })
             .then(data => console.log(data))
-            .catch(error => console.error("Error:", error));
+            .catch(error => {
+                console.error("Error:", error);
+                showMessage("Error adding password.", "error");
+            });
         }
 
         function deletePassword() {
@@ -55,8 +102,12 @@
                     passwordElement.textContent = password;
                     passwordList.appendChild(passwordElement);
                 });
+                showMessage("Passwords loaded successfully.", "success");
             })
-            .catch(error => console.error("Error:", error));
+            .catch(error => {
+                console.error("Error:", error);
+                showMessage("Error loading passwords.", "error");
+            });
         }
     </script>
 </body>
